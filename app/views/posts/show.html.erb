@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @post %>
+
+<h6>comentarios:</h6>
+
+    <%if @comment.post_id == @post.id%>
+      <%@comment.content%>
+        <% else %>
+        <p>No comments yet</p>
+      <%end%>
+    
+    
+
+    
+
+
+<div>
+  <%= render "comments/form", comment: @comment%>
+  <%= link_to "Back to posts", posts_path %>
+
+  <% if user_signed_in?%>
+    <%if current_user.id == @post.user_id%>
+
+      <%= link_to "Edit this post", edit_post_path(@post) %> 
+
+      <%= button_to "Destroy this post", @post, method: :delete %>
+    <%end%>
+  <%end%>
+</div>
