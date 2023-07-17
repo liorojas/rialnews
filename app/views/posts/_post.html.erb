@@ -19,5 +19,12 @@
     <%= post.user.email %>
   </p>
 
+   <p>
+    <strong>Comment:</strong>
+    <%post.comments.each do |c|%>
+    <%= c.content%>
+    <%end%>
+  </p>
+  
 
 </div>
